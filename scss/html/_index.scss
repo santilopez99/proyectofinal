@@ -1,0 +1,130 @@
+@import"../vars/variables";
+@import"../vars/extend";
+@import"../vars/mixin";
+@import"../vars/mq";
+
+/* estilos generales*/ 
+html {
+    position: relative;
+    min-height: 100%;
+  }
+body{
+    background:$color-principal;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding-bottom: 100px;
+}
+
+/* estilos del header*/ 
+ header{
+    display: none;
+ }
+
+ /*estilos del main*/ 
+ main{
+    @include inicio;
+
+    .boton{
+        @extend %boton;
+    }  
+    img{
+        @include medidaimginicio (60%)
+    }
+ }
+/* estilos de section*/
+section{
+    display: none;
+}
+
+/* pantallas de tablet */
+@import"../vars/mq";
+header {
+    nav {
+        ul{
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    li{
+        font-weight: bold;
+    }
+}
+    }
+}
+/* estilos de section*/
+section{
+    @include section;
+
+    div{
+        @include sectiondiv;
+    }
+    div {
+        
+            img{
+                @include medidasectionimg (20%);
+                  
+                }
+            }
+        ;
+    }
+  
+    /* estilos de pantallas de escritorio */
+   @import "../vars/mq";
+    
+/* estilos de main*/
+main{
+    
+    @include estilosmain;
+    h2{
+        grid-area:h2;
+    }
+    img {
+        grid-area: img;
+    }
+    img:hover{
+        filter: $color-imgmain;
+    }
+    p{
+        grid-area: p;
+        margin: 10px;
+        font-size: 35px;
+    }
+    p-dos{
+        grid-area: p-dos;
+        width: 70%;
+    }
+    .chat-btn {
+        background-color: #53a8c5;
+        color: white;
+        border: none;
+        height: 27px;
+        padding: .1px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 10px;
+      
+      }
+      .chat-btn:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+    
+      
+}
+.textoinicio h2{
+    @include textoinicioh2;
+}
+.contenedorinicio{
+    @include contenedorinicio;
+    @extend %estiloimagenes123;
+   
+}
+/* estilos de footer */
+.footer h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+}
